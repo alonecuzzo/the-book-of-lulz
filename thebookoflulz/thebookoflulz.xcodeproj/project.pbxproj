@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88DC24F415CB004200446F65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DC24F315CB004200446F65 /* UIKit.framework */; };
+		88DC24F615CB004200446F65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DC24F515CB004200446F65 /* Foundation.framework */; };
+		88DC24F815CB004200446F65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DC24F715CB004200446F65 /* CoreGraphics.framework */; };
+		88DC24FE15CB004200446F65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88DC24FC15CB004200446F65 /* InfoPlist.strings */; };
+		88DC250015CB004200446F65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DC24FF15CB004200446F65 /* main.m */; };
+		88DC250415CB004200446F65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DC250315CB004200446F65 /* AppDelegate.m */; };
+		88DC250715CB004200446F65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DC250615CB004200446F65 /* ViewController.m */; };
+		88DC250A15CB004200446F65 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DC250815CB004200446F65 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		88DC24EF15CB004200446F65 /* thebookoflulz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thebookoflulz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DC24F315CB004200446F65 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		88DC24F515CB004200446F65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		88DC24F715CB004200446F65 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		88DC24FB15CB004200446F65 /* thebookoflulz-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "thebookoflulz-Info.plist"; sourceTree = "<group>"; };
+		88DC24FD15CB004200446F65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		88DC24FF15CB004200446F65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88DC250115CB004200446F65 /* thebookoflulz-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "thebookoflulz-Prefix.pch"; sourceTree = "<group>"; };
+		88DC250215CB004200446F65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		88DC250315CB004200446F65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		88DC250515CB004200446F65 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		88DC250615CB004200446F65 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		88DC250915CB004200446F65 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88DC24EC15CB004200446F65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88DC24F415CB004200446F65 /* UIKit.framework in Frameworks */,
+				88DC24F615CB004200446F65 /* Foundation.framework in Frameworks */,
+				88DC24F815CB004200446F65 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88DC24E415CB004200446F65 = {
+			isa = PBXGroup;
+			children = (
+				88DC24F915CB004200446F65 /* thebookoflulz */,
+				88DC24F215CB004200446F65 /* Frameworks */,
+				88DC24F015CB004200446F65 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88DC24F015CB004200446F65 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88DC24EF15CB004200446F65 /* thebookoflulz.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88DC24F215CB004200446F65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88DC24F315CB004200446F65 /* UIKit.framework */,
+				88DC24F515CB004200446F65 /* Foundation.framework */,
+				88DC24F715CB004200446F65 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88DC24F915CB004200446F65 /* thebookoflulz */ = {
+			isa = PBXGroup;
+			children = (
+				88DC250215CB004200446F65 /* AppDelegate.h */,
+				88DC250315CB004200446F65 /* AppDelegate.m */,
+				88DC250515CB004200446F65 /* ViewController.h */,
+				88DC250615CB004200446F65 /* ViewController.m */,
+				88DC250815CB004200446F65 /* ViewController.xib */,
+				88DC24FA15CB004200446F65 /* Supporting Files */,
+			);
+			path = thebookoflulz;
+			sourceTree = "<group>";
+		};
+		88DC24FA15CB004200446F65 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88DC24FB15CB004200446F65 /* thebookoflulz-Info.plist */,
+				88DC24FC15CB004200446F65 /* InfoPlist.strings */,
+				88DC24FF15CB004200446F65 /* main.m */,
+				88DC250115CB004200446F65 /* thebookoflulz-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88DC24EE15CB004200446F65 /* thebookoflulz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88DC250D15CB004200446F65 /* Build configuration list for PBXNativeTarget "thebookoflulz" */;
+			buildPhases = (
+				88DC24EB15CB004200446F65 /* Sources */,
+				88DC24EC15CB004200446F65 /* Frameworks */,
+				88DC24ED15CB004200446F65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = thebookoflulz;
+			productName = thebookoflulz;
+			productReference = 88DC24EF15CB004200446F65 /* thebookoflulz.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88DC24E615CB004200446F65 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 88DC24E915CB004200446F65 /* Build configuration list for PBXProject "thebookoflulz" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 88DC24E415CB004200446F65;
+			productRefGroup = 88DC24F015CB004200446F65 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88DC24EE15CB004200446F65 /* thebookoflulz */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88DC24ED15CB004200446F65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88DC24FE15CB004200446F65 /* InfoPlist.strings in Resources */,
+				88DC250A15CB004200446F65 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88DC24EB15CB004200446F65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88DC250015CB004200446F65 /* main.m in Sources */,
+				88DC250415CB004200446F65 /* AppDelegate.m in Sources */,
+				88DC250715CB004200446F65 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		88DC24FC15CB004200446F65 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88DC24FD15CB004200446F65 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		88DC250815CB004200446F65 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88DC250915CB004200446F65 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88DC250B15CB004200446F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		88DC250C15CB004200446F65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88DC250E15CB004200446F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "thebookoflulz/thebookoflulz-Prefix.pch";
+				INFOPLIST_FILE = "thebookoflulz/thebookoflulz-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		88DC250F15CB004200446F65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "thebookoflulz/thebookoflulz-Prefix.pch";
+				INFOPLIST_FILE = "thebookoflulz/thebookoflulz-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88DC24E915CB004200446F65 /* Build configuration list for PBXProject "thebookoflulz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88DC250B15CB004200446F65 /* Debug */,
+				88DC250C15CB004200446F65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88DC250D15CB004200446F65 /* Build configuration list for PBXNativeTarget "thebookoflulz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88DC250E15CB004200446F65 /* Debug */,
+				88DC250F15CB004200446F65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88DC24E615CB004200446F65 /* Project object */;
+}
