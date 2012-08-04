@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FeedViewController : UIViewController {
-    BOOL *menuOpen;
+    BOOL menuOpen;
     IBOutlet UIView *feedView;
 }
 
