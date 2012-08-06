@@ -100,10 +100,12 @@ static NSString *const kTextType = @"text";
     result.slug = [dictionary objectForKey:@"slug"];
     
     //this bit rips out the url text in the text post
+    //also needs to check for the possiblity of not having html formatted post
+    NSString *format = [dictionary objectForKey:@"format"];
     NSString *bodyText = [dictionary objectForKey:@"body"];
     NSString *searchString = @"src";
     NSUInteger searchStringLocation = [bodyText rangeOfString:searchString options:(NSCaseInsensitiveSearch)].location;
-    if(searchStringLocation != NSNotFound){
+    if(searchStringLocation != NSNotFound && [format isEqualToString:@"html"]){
         NSInteger urlOffset = searchString.length + 2;
         NSRange urlRange = {searchStringLocation + urlOffset, bodyText.length - (searchStringLocation + urlOffset)};
         NSString *tempString = [bodyText substringWithRange:urlRange];
@@ -242,7 +244,7 @@ static NSString *const kTextType = @"text";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
+    return [searchResults count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
