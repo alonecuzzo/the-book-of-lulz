@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		888EF16415D0343700470686 /* dummytable.m in Sources */ = {isa = PBXBuildFile; fileRef = 888EF16315D0343700470686 /* dummytable.m */; };
 		88DB867315CD792B008DF7F9 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB865E15CD792B008DF7F9 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
 		88DB867415CD792B008DF7F9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB866015CD792B008DF7F9 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		88DB867515CD792B008DF7F9 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB866215CD792B008DF7F9 /* AFImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		888EF16215D0343700470686 /* dummytable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dummytable.h; sourceTree = "<group>"; };
+		888EF16315D0343700470686 /* dummytable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dummytable.m; sourceTree = "<group>"; };
 		88DB865D15CD792B008DF7F9 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		88DB865E15CD792B008DF7F9 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		88DB865F15CD792B008DF7F9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				88DB868115CDA6C4008DF7F9 /* SearchResult.h */,
 				88DB868215CDA6C4008DF7F9 /* SearchResult.m */,
 				88DC24FA15CB004200446F65 /* Supporting Files */,
+				888EF16215D0343700470686 /* dummytable.h */,
+				888EF16315D0343700470686 /* dummytable.m */,
 			);
 			path = thebookoflulz;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				88DB867B15CD792B008DF7F9 /* AFXMLRequestOperation.m in Sources */,
 				88DB867C15CD792B008DF7F9 /* UIImageView+AFNetworking.m in Sources */,
 				88DB868315CDA6C4008DF7F9 /* SearchResult.m in Sources */,
+				888EF16415D0343700470686 /* dummytable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
