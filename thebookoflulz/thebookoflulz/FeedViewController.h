@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedViewController : UIViewController {
+@interface FeedViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource>{
     BOOL menuOpen;
     IBOutlet UIView *feedView;
 }
 
 @property (nonatomic, weak) UIView *feedView;
 
--(IBAction)searchButtonTapped:(id)sender;
+-(IBAction)performSearch;
 
 @end

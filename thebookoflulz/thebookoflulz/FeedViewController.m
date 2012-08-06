@@ -10,20 +10,27 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import "AFJSONRequestOperation.h"
+#import "SearchResult.h"
 
 static NSString *const kOauthConsumerKey = @"pLM9QUE1O0OYgaO81aGvZEtvnkoTeNwNXzTYoP58WHUELwJaXN";
 static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebookoflulz.org/posts/";
+static NSString *const kPhotoType = @"photo";
+static NSString *const kVideoType = @"video";
+static NSString *const kTextType = @"text";
 
 @interface FeedViewController ()
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
 
 @implementation FeedViewController {
     NSOperationQueue *queue;
+    NSMutableArray *searchResults;
 }
 
 @synthesize feedView = _feedView;
 @synthesize searchBar = _searchBar;
+@synthesize tableView = _tableView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -81,10 +88,98 @@ static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebo
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
--(NSURL *)urlWithSearchText:(NSString *)searchText
+-(SearchResult *)parseText:(NSDictionary *)dictionary
 {
-    NSString *escapedSearchString = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *urlString = [NSString stringWithFormat:@"%@?api_key=%@", kBaseTumblrApiUrl, kOauthConsumerKey];
+    SearchResult *result = [[SearchResult alloc] init];
+    result.postURL = [dictionary objectForKey:@"post_url"];
+    result.postID = [dictionary objectForKey:@"id"];
+    result.tags = [dictionary objectForKey:@"tags"];
+    result.timestamp = [dictionary objectForKey:@"timestamp"];
+    result.caption = [dictionary objectForKey:@"caption"];
+    result.type = [dictionary objectForKey:@"type"];
+    result.slug = [dictionary objectForKey:@"slug"];
+    
+    //this bit rips out the url text in the text post
+    NSString *bodyText = [dictionary objectForKey:@"body"];
+    NSString *searchString = @"src";
+    NSUInteger searchStringLocation = [bodyText rangeOfString:searchString options:(NSCaseInsensitiveSearch)].location;
+    if(searchStringLocation != NSNotFound){
+        NSInteger urlOffset = searchString.length + 2;
+        NSRange urlRange = {searchStringLocation + urlOffset, bodyText.length - (searchStringLocation + urlOffset)};
+        NSString *tempString = [bodyText substringWithRange:urlRange];
+        NSUInteger secondQuoteLocation = [tempString rangeOfString:@"\""].location;
+        urlRange = NSMakeRange(0, secondQuoteLocation);
+        tempString = [tempString substringWithRange:urlRange];
+        result.textPhotoURL = tempString;
+    }
+
+    return result;
+}
+
+-(SearchResult *)parsePhoto:(NSDictionary *)dictionary
+{
+    SearchResult *result = [[SearchResult alloc] init];
+    result.postURL = [dictionary objectForKey:@"post_url"];
+    result.postID = [dictionary objectForKey:@"id"];
+    result.tags = [dictionary objectForKey:@"tags"];
+    result.timestamp = [dictionary objectForKey:@"timestamp"];
+    result.caption = [dictionary objectForKey:@"caption"];
+    result.type = [dictionary objectForKey:@"type"];
+    result.slug = [dictionary objectForKey:@"slug"];
+    result.photos = [dictionary objectForKey:@"photos"];
+    result.linkURL = [dictionary objectForKey:@"link_url"];
+    return result;
+}
+
+-(SearchResult *)parseVideo:(NSDictionary *)dictionary
+{
+    SearchResult *result = [[SearchResult alloc] init];
+    result.postURL = [dictionary objectForKey:@"post_url"];
+    result.postID = [dictionary objectForKey:@"id"];
+    result.tags = [dictionary objectForKey:@"tags"];
+    result.timestamp = [dictionary objectForKey:@"timestamp"];
+    result.caption = [dictionary objectForKey:@"caption"];
+    result.type = [dictionary objectForKey:@"type"];
+    result.permalinkURL = [dictionary objectForKey:@"permalink_url"];
+    result.thumbnailURL = [dictionary objectForKey:@"thumbnail_url"];
+    result.html5Capable = (BOOL)[dictionary objectForKey:@"html5_capable"];
+    result.videoURL = [dictionary objectForKey:@"video_url"];
+    result.slug = [dictionary objectForKey:@"slug"];
+    return result;
+}
+
+-(void)parseDictionary:(NSDictionary *)dictionary
+{
+    NSDictionary *responseDict = [dictionary objectForKey:@"response"];
+    NSArray *postsArray = [responseDict objectForKey:@"posts"];
+    if(postsArray == nil){
+        NSLog(@"Expected 'posts' array in json result");
+        return;
+    }
+    
+    for(NSDictionary *postDict in postsArray) {
+        SearchResult *result;
+        
+        NSString *type = [postDict objectForKey:@"type"];
+        
+        if([type isEqualToString:kPhotoType]) {
+            result = [self parsePhoto:postDict];
+        } else if ([type isEqualToString:kVideoType]) {
+            result = [self parseVideo:postDict];
+        } else if ([type isEqualToString:kTextType]) {
+            result = [self parseText:postDict];
+        }
+        if(result != nil){
+            [searchResults addObject:result];   
+        }
+    }
+    
+}
+
+-(NSURL *)urlWithSearchText:(NSString *)tagString
+{
+    NSString *escapedTagString = [tagString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [NSString stringWithFormat:@"%@?api_key=%@&tag=%@", kBaseTumblrApiUrl, kOauthConsumerKey, escapedTagString];
     NSURL *url = [NSURL URLWithString:urlString];
     return url;
 }
@@ -96,11 +191,14 @@ static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebo
         searchText = @"";
     }
     NSURL *url = [self urlWithSearchText:searchText];
-    NSLog(@"our url: %@", url);
+    //NSLog(@"our url: %@", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
+    searchResults = [NSMutableArray arrayWithCapacity:10];
+    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON){
-        NSLog(@"result: %@", JSON);
+        //NSLog(@"result: %@", JSON);
+        [self parseDictionary:JSON];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"fail: %@", error);
     }];
@@ -110,8 +208,10 @@ static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebo
     [queue addOperation:operation];
 }
 
--(IBAction)searchButtonTapped:(id)sender
+-(IBAction)performSearch
 {
+    [self.searchBar resignFirstResponder];
+    
     CGRect frame = self.feedView.frame;
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
@@ -122,17 +222,32 @@ static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebo
         frame.origin.x = 0;
         menuOpen = NO;
     } else {
-        frame.origin.x = 245;
+        frame.origin.x = 270;
         menuOpen = YES;
+        [self.searchBar becomeFirstResponder];
+        self.searchBar.text = @"";
     }
     
     self.feedView.frame = frame;
     [UIView commitAnimations];
-    
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self performSearch];
     [self loadData];
 }
 
+#pragma mark - UITableViewDataSource
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+}
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    
+}
 
 @end

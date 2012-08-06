@@ -17,6 +17,7 @@
 		88DB867A15CD792B008DF7F9 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB866E15CD792B008DF7F9 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		88DB867B15CD792B008DF7F9 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB867015CD792B008DF7F9 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
 		88DB867C15CD792B008DF7F9 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB867215CD792B008DF7F9 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		88DB868315CDA6C4008DF7F9 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB868215CDA6C4008DF7F9 /* SearchResult.m */; };
 		88DC24F415CB004200446F65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DC24F315CB004200446F65 /* UIKit.framework */; };
 		88DC24F615CB004200446F65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DC24F515CB004200446F65 /* Foundation.framework */; };
 		88DC24F815CB004200446F65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DC24F715CB004200446F65 /* CoreGraphics.framework */; };
@@ -50,6 +51,8 @@
 		88DB867015CD792B008DF7F9 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		88DB867115CD792B008DF7F9 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		88DB867215CD792B008DF7F9 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		88DB868115CDA6C4008DF7F9 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		88DB868215CDA6C4008DF7F9 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
 		88DC24EF15CB004200446F65 /* thebookoflulz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thebookoflulz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DC24F315CB004200446F65 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88DC24F515CB004200446F65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +147,8 @@
 				88DC250515CB004200446F65 /* FeedViewController.h */,
 				88DC250615CB004200446F65 /* FeedViewController.m */,
 				88DC250815CB004200446F65 /* FeedViewController.xib */,
+				88DB868115CDA6C4008DF7F9 /* SearchResult.h */,
+				88DB868215CDA6C4008DF7F9 /* SearchResult.m */,
 				88DC24FA15CB004200446F65 /* Supporting Files */,
 			);
 			path = thebookoflulz;
@@ -235,6 +240,7 @@
 				88DB867A15CD792B008DF7F9 /* AFURLConnectionOperation.m in Sources */,
 				88DB867B15CD792B008DF7F9 /* AFXMLRequestOperation.m in Sources */,
 				88DB867C15CD792B008DF7F9 /* UIImageView+AFNetworking.m in Sources */,
+				88DB868315CDA6C4008DF7F9 /* SearchResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
