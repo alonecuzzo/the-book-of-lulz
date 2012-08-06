@@ -11,12 +11,14 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "AFJSONRequestOperation.h"
 #import "SearchResult.h"
+#import "SearchResultCell.h"
 
 static NSString *const kOauthConsumerKey = @"pLM9QUE1O0OYgaO81aGvZEtvnkoTeNwNXzTYoP58WHUELwJaXN";
 static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebookoflulz.org/posts/";
 static NSString *const kPhotoType = @"photo";
 static NSString *const kVideoType = @"video";
 static NSString *const kTextType = @"text";
+static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
 
 @interface FeedViewController ()
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
@@ -125,7 +127,6 @@ static NSString *const kTextType = @"text";
             [searchResults addObject:result];   
         }
     }
-    
 }
 
 -(NSURL *)urlWithSearchText:(NSString *)tagString
@@ -151,7 +152,7 @@ static NSString *const kTextType = @"text";
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON){
         //NSLog(@"result: %@", JSON);
         [self parseDictionary:JSON];
-        NSLog(@"searchResults count: %d", [searchResults count]);
+        //NSLog(@"searchResults count: %d", [searchResults count]);
         [self.tableView reloadData];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"fail: %@", error);
@@ -193,29 +194,6 @@ static NSString *const kTextType = @"text";
     
 }
 
-#pragma mark - UITableViewDataSource
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [searchResults count];
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell...
-    SearchResult *currentResult = [searchResults objectAtIndex:indexPath.row];
-    cell.textLabel.text = currentResult.type;
-    
-    return cell;
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -223,13 +201,19 @@ static NSString *const kTextType = @"text";
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     menuOpen = NO;
+    
+    UINib *celNib = [UINib nibWithNibName:kSearchResultCellIdentifier bundle:nil];
+    [self.tableView registerNib:celNib forCellReuseIdentifier:kSearchResultCellIdentifier];
+    
+    self.tableView.rowHeight = 300;
+    
+    [self loadData];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         queue = [[NSOperationQueue alloc] init];
-        [self loadData];
     }
     return self;
 }
@@ -265,6 +249,24 @@ static NSString *const kTextType = @"text";
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+#pragma mark - UITableViewDataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [searchResults count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    SearchResultCell *cell = (SearchResultCell *)[tableView dequeueReusableCellWithIdentifier:kSearchResultCellIdentifier];
+    
+    // Configure the cell...
+    SearchResult *currentResult = [searchResults objectAtIndex:indexPath.row];
+    [cell configureForSearchResult:currentResult];
+    
+    return cell;
 }
 
 

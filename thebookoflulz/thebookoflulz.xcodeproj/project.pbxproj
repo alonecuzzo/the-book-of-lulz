@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		888EF16415D0343700470686 /* dummytable.m in Sources */ = {isa = PBXBuildFile; fileRef = 888EF16315D0343700470686 /* dummytable.m */; };
+		888EF16915D039D100470686 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 888EF16715D039D100470686 /* SearchResultCell.m */; };
+		888EF16A15D039D100470686 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888EF16815D039D100470686 /* SearchResultCell.xib */; };
+		888EF16E15D0442A00470686 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 888EF16C15D0442A00470686 /* Placeholder.png */; };
+		888EF16F15D0442A00470686 /* Placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 888EF16D15D0442A00470686 /* Placeholder@2x.png */; };
 		88DB867315CD792B008DF7F9 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB865E15CD792B008DF7F9 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
 		88DB867415CD792B008DF7F9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB866015CD792B008DF7F9 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		88DB867515CD792B008DF7F9 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB866215CD792B008DF7F9 /* AFImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -32,6 +36,11 @@
 /* Begin PBXFileReference section */
 		888EF16215D0343700470686 /* dummytable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dummytable.h; sourceTree = "<group>"; };
 		888EF16315D0343700470686 /* dummytable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dummytable.m; sourceTree = "<group>"; };
+		888EF16615D039D100470686 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
+		888EF16715D039D100470686 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
+		888EF16815D039D100470686 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		888EF16C15D0442A00470686 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
+		888EF16D15D0442A00470686 /* Placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder@2x.png"; sourceTree = "<group>"; };
 		88DB865D15CD792B008DF7F9 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		88DB865E15CD792B008DF7F9 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		88DB865F15CD792B008DF7F9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -85,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		888EF16B15D0440F00470686 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				888EF16C15D0442A00470686 /* Placeholder.png */,
+				888EF16D15D0442A00470686 /* Placeholder@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		88DB865C15CD792B008DF7F9 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +135,7 @@
 		88DC24E415CB004200446F65 = {
 			isa = PBXGroup;
 			children = (
+				888EF16B15D0440F00470686 /* Images */,
 				88DB865C15CD792B008DF7F9 /* AFNetworking */,
 				88DC24F915CB004200446F65 /* thebookoflulz */,
 				88DC24F215CB004200446F65 /* Frameworks */,
@@ -149,9 +168,12 @@
 				88DC250315CB004200446F65 /* AppDelegate.m */,
 				88DC250515CB004200446F65 /* FeedViewController.h */,
 				88DC250615CB004200446F65 /* FeedViewController.m */,
-				88DC250815CB004200446F65 /* FeedViewController.xib */,
 				88DB868115CDA6C4008DF7F9 /* SearchResult.h */,
 				88DB868215CDA6C4008DF7F9 /* SearchResult.m */,
+				888EF16615D039D100470686 /* SearchResultCell.h */,
+				888EF16715D039D100470686 /* SearchResultCell.m */,
+				88DC250815CB004200446F65 /* FeedViewController.xib */,
+				888EF16815D039D100470686 /* SearchResultCell.xib */,
 				88DC24FA15CB004200446F65 /* Supporting Files */,
 				888EF16215D0343700470686 /* dummytable.h */,
 				888EF16315D0343700470686 /* dummytable.m */,
@@ -222,6 +244,9 @@
 			files = (
 				88DC24FE15CB004200446F65 /* InfoPlist.strings in Resources */,
 				88DC250A15CB004200446F65 /* FeedViewController.xib in Resources */,
+				888EF16A15D039D100470686 /* SearchResultCell.xib in Resources */,
+				888EF16E15D0442A00470686 /* Placeholder.png in Resources */,
+				888EF16F15D0442A00470686 /* Placeholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +272,7 @@
 				88DB867C15CD792B008DF7F9 /* UIImageView+AFNetworking.m in Sources */,
 				88DB868315CDA6C4008DF7F9 /* SearchResult.m in Sources */,
 				888EF16415D0343700470686 /* dummytable.m in Sources */,
+				888EF16915D039D100470686 /* SearchResultCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
