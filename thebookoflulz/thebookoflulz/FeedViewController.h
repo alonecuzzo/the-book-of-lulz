@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource>{
+#import "LBYouTubePlayerViewController.h"
+
+@interface FeedViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, LBYouTubePlayerControllerDelegate>{
     BOOL menuOpen;
     IBOutlet UIView *feedView;
 }
@@ -16,5 +18,8 @@
 @property (nonatomic, weak) UIView *feedView;
 
 -(IBAction)performSearch;
+
+-(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL;
+-(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error;
 
 @end

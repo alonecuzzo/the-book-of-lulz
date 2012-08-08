@@ -14,6 +14,8 @@
 #import "SearchResultCell.h"
 #import "TBLUtil.h"
 #import "AppDelegate.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "YouTubeVideoViewController.h"
 
 static NSString *const kOauthConsumerKey = @"pLM9QUE1O0OYgaO81aGvZEtvnkoTeNwNXzTYoP58WHUELwJaXN";
 static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebookoflulz.org/posts/";
@@ -252,6 +254,7 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    NSLog(@"LULZ");
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -272,7 +275,7 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - UITableViewDataSource
@@ -291,6 +294,68 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
     [cell configureForSearchResult:currentResult];
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // UITableView only moves in one direction, y axis
+    NSInteger currentOffset = scrollView.contentOffset.y;
+    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    // Change 10.0 to adjust the distance from bottom
+    if (maximumOffset - currentOffset <= 10.0) {
+        NSLog(@"at bottom!");
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+    SearchResult *result = (SearchResult *)[searchResults objectAtIndex:indexPath.row];
+  
+    if([result.type isEqualToString:kVideoType]){
+        
+        NSString *urlString;
+        
+        if(result.videoURL != nil) {
+            urlString = result.videoURL;
+            NSURL *videoUrl = [NSURL URLWithString:urlString];
+            MPMoviePlayerViewController *videoPlayerViewController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoUrl];
+            [self presentViewController:videoPlayerViewController animated:YES completion:nil];
+        } else if(result.permalinkURL != nil) {
+            urlString = result.permalinkURL;
+            LBYouTubePlayerViewController *youtubeVideoPlayer = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:urlString]];
+            youtubeVideoPlayer.quality = LBYouTubePlayerQualityLarge;
+            youtubeVideoPlayer.delegate = self;
+        } else {
+            //needs an error handler- say unsupported video type or something
+        }
+        
+        NSLog(@"clicked! %@", urlString);
+        
+        
+    }
+}
+
+#pragma mark - 
+#pragma mark LBYouTubePlayerViewControllerDelegate
+
+-(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
+    NSLog(@"Did extract video source:%@", videoURL);
+    MPMoviePlayerViewController *videoPlayerViewController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+    [self presentViewController:videoPlayerViewController animated:YES completion:nil];
+
+}
+
+-(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
+    NSLog(@"Failed loading video due to error:%@", error);
 }
 
 -(void) swipedScreen:(UISwipeGestureRecognizer*)swipeGesture {

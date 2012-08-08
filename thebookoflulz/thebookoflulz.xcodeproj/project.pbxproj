@@ -11,6 +11,11 @@
 		888B690F15D2D60400610072 /* PlayIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 888B690E15D2D60400610072 /* PlayIcon.png */; };
 		888B691215D2E78000610072 /* TBLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 888B691115D2E78000610072 /* TBLUtil.m */; };
 		888B691415D2F46200610072 /* PlayIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 888B691315D2F46200610072 /* PlayIcon@2x.png */; };
+		888B691615D3077800610072 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888B691515D3077800610072 /* MediaPlayer.framework */; };
+		888B693815D3256A00610072 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 888B693715D3256A00610072 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		888B693E15D325AB00610072 /* LBYouTubePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 888B693B15D325AB00610072 /* LBYouTubePlayerController.m */; };
+		888B693F15D325AB00610072 /* LBYouTubePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 888B693D15D325AB00610072 /* LBYouTubePlayerViewController.m */; };
+		888B694215D327D600610072 /* YouTubeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 888B694115D327D600610072 /* YouTubeVideoViewController.m */; };
 		888EF16415D0343700470686 /* dummytable.m in Sources */ = {isa = PBXBuildFile; fileRef = 888EF16315D0343700470686 /* dummytable.m */; };
 		888EF16915D039D100470686 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 888EF16715D039D100470686 /* SearchResultCell.m */; };
 		888EF16A15D039D100470686 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888EF16815D039D100470686 /* SearchResultCell.xib */; };
@@ -44,6 +49,15 @@
 		888B691015D2E78000610072 /* TBLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLUtil.h; sourceTree = "<group>"; };
 		888B691115D2E78000610072 /* TBLUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLUtil.m; sourceTree = "<group>"; };
 		888B691315D2F46200610072 /* PlayIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayIcon@2x.png"; sourceTree = "<group>"; };
+		888B691515D3077800610072 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		888B693615D3256A00610072 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		888B693715D3256A00610072 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		888B693A15D325AB00610072 /* LBYouTubePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubePlayerController.h; sourceTree = "<group>"; };
+		888B693B15D325AB00610072 /* LBYouTubePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubePlayerController.m; sourceTree = "<group>"; };
+		888B693C15D325AB00610072 /* LBYouTubePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubePlayerViewController.h; sourceTree = "<group>"; };
+		888B693D15D325AB00610072 /* LBYouTubePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubePlayerViewController.m; sourceTree = "<group>"; };
+		888B694015D327D600610072 /* YouTubeVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoViewController.h; sourceTree = "<group>"; };
+		888B694115D327D600610072 /* YouTubeVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeVideoViewController.m; sourceTree = "<group>"; };
 		888EF16215D0343700470686 /* dummytable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dummytable.h; sourceTree = "<group>"; };
 		888EF16315D0343700470686 /* dummytable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dummytable.m; sourceTree = "<group>"; };
 		888EF16615D039D100470686 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
@@ -97,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				888B691615D3077800610072 /* MediaPlayer.framework in Frameworks */,
 				88DC24F415CB004200446F65 /* UIKit.framework in Frameworks */,
 				88DC24F615CB004200446F65 /* Foundation.framework in Frameworks */,
 				88DC24F815CB004200446F65 /* CoreGraphics.framework in Frameworks */,
@@ -106,6 +121,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		888B693515D3255700610072 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				888B693615D3256A00610072 /* JSONKit.h */,
+				888B693715D3256A00610072 /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		888B693915D325AB00610072 /* LBYouTubePlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				888B693A15D325AB00610072 /* LBYouTubePlayerController.h */,
+				888B693B15D325AB00610072 /* LBYouTubePlayerController.m */,
+				888B693C15D325AB00610072 /* LBYouTubePlayerViewController.h */,
+				888B693D15D325AB00610072 /* LBYouTubePlayerViewController.m */,
+			);
+			path = LBYouTubePlayerController;
+			sourceTree = "<group>";
+		};
 		888EF16B15D0440F00470686 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +194,8 @@
 		88DC24E415CB004200446F65 = {
 			isa = PBXGroup;
 			children = (
+				888B693915D325AB00610072 /* LBYouTubePlayerController */,
+				888B693515D3255700610072 /* JSONKit */,
 				888EF17415D04A9400470686 /* AnimatedGif */,
 				888EF16B15D0440F00470686 /* Images */,
 				88DB865C15CD792B008DF7F9 /* AFNetworking */,
@@ -179,6 +216,7 @@
 		88DC24F215CB004200446F65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				888B691515D3077800610072 /* MediaPlayer.framework */,
 				88DC24F315CB004200446F65 /* UIKit.framework */,
 				88DC24F515CB004200446F65 /* Foundation.framework */,
 				88DC24F715CB004200446F65 /* CoreGraphics.framework */,
@@ -199,6 +237,8 @@
 				888EF16715D039D100470686 /* SearchResultCell.m */,
 				888B691015D2E78000610072 /* TBLUtil.h */,
 				888B691115D2E78000610072 /* TBLUtil.m */,
+				888B694015D327D600610072 /* YouTubeVideoViewController.h */,
+				888B694115D327D600610072 /* YouTubeVideoViewController.m */,
 				88DC250815CB004200446F65 /* FeedViewController.xib */,
 				888EF16815D039D100470686 /* SearchResultCell.xib */,
 				88DC24FA15CB004200446F65 /* Supporting Files */,
@@ -305,6 +345,10 @@
 				888EF16915D039D100470686 /* SearchResultCell.m in Sources */,
 				888EF17715D04A9400470686 /* AnimatedGif.m in Sources */,
 				888B691215D2E78000610072 /* TBLUtil.m in Sources */,
+				888B693815D3256A00610072 /* JSONKit.m in Sources */,
+				888B693E15D325AB00610072 /* LBYouTubePlayerController.m in Sources */,
+				888B693F15D325AB00610072 /* LBYouTubePlayerViewController.m in Sources */,
+				888B694215D327D600610072 /* YouTubeVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
