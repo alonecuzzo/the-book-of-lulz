@@ -12,6 +12,7 @@
 #import "AFJSONRequestOperation.h"
 #import "SearchResult.h"
 #import "SearchResultCell.h"
+#import "TBLUtil.h"
 
 static NSString *const kOauthConsumerKey = @"pLM9QUE1O0OYgaO81aGvZEtvnkoTeNwNXzTYoP58WHUELwJaXN";
 static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebookoflulz.org/posts/";
@@ -82,6 +83,12 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
     result.slug = [dictionary objectForKey:@"slug"];
     result.photos = [dictionary objectForKey:@"photos"];
     result.linkURL = [dictionary objectForKey:@"link_url"];
+    
+    //if it's a gif return nil
+    if ([[TBLUtil getFileExtension:[TBLUtil photoImageUrl:result]] isEqualToString:@"gif"] || [[TBLUtil getFileExtension:[TBLUtil photoImageUrl:result]] isEqualToString:@"GIF"]) {
+        return nil;
+    }
+    
     return result;
 }
 
@@ -121,7 +128,7 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
         } else if ([type isEqualToString:kVideoType]) {
             result = [self parseVideo:postDict];
         } else if ([type isEqualToString:kTextType]) {
-            result = [self parseText:postDict];
+            //result = [self parseText:postDict];
         }
         if(result != nil){
             [searchResults addObject:result];   
@@ -205,7 +212,7 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
     UINib *celNib = [UINib nibWithNibName:kSearchResultCellIdentifier bundle:nil];
     [self.tableView registerNib:celNib forCellReuseIdentifier:kSearchResultCellIdentifier];
     
-    self.tableView.rowHeight = 300;
+    self.tableView.rowHeight = 240;
     
     [self loadData];
 }

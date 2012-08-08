@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		888B690C15D2D28900610072 /* CellBkgrnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 888B690B15D2D28900610072 /* CellBkgrnd.png */; };
+		888B690F15D2D60400610072 /* PlayIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 888B690E15D2D60400610072 /* PlayIcon.png */; };
+		888B691215D2E78000610072 /* TBLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 888B691115D2E78000610072 /* TBLUtil.m */; };
 		888EF16415D0343700470686 /* dummytable.m in Sources */ = {isa = PBXBuildFile; fileRef = 888EF16315D0343700470686 /* dummytable.m */; };
 		888EF16915D039D100470686 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 888EF16715D039D100470686 /* SearchResultCell.m */; };
 		888EF16A15D039D100470686 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888EF16815D039D100470686 /* SearchResultCell.xib */; };
 		888EF16E15D0442A00470686 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 888EF16C15D0442A00470686 /* Placeholder.png */; };
 		888EF16F15D0442A00470686 /* Placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 888EF16D15D0442A00470686 /* Placeholder@2x.png */; };
+		888EF17715D04A9400470686 /* AnimatedGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 888EF17615D04A9400470686 /* AnimatedGif.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		88DB867315CD792B008DF7F9 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB865E15CD792B008DF7F9 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
 		88DB867415CD792B008DF7F9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB866015CD792B008DF7F9 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		88DB867515CD792B008DF7F9 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DB866215CD792B008DF7F9 /* AFImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -34,6 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		888B690B15D2D28900610072 /* CellBkgrnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellBkgrnd.png; sourceTree = "<group>"; };
+		888B690E15D2D60400610072 /* PlayIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayIcon.png; sourceTree = "<group>"; };
+		888B691015D2E78000610072 /* TBLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLUtil.h; sourceTree = "<group>"; };
+		888B691115D2E78000610072 /* TBLUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLUtil.m; sourceTree = "<group>"; };
 		888EF16215D0343700470686 /* dummytable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dummytable.h; sourceTree = "<group>"; };
 		888EF16315D0343700470686 /* dummytable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dummytable.m; sourceTree = "<group>"; };
 		888EF16615D039D100470686 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
@@ -41,6 +49,8 @@
 		888EF16815D039D100470686 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		888EF16C15D0442A00470686 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		888EF16D15D0442A00470686 /* Placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder@2x.png"; sourceTree = "<group>"; };
+		888EF17515D04A9400470686 /* AnimatedGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGif.h; sourceTree = "<group>"; };
+		888EF17615D04A9400470686 /* AnimatedGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGif.m; sourceTree = "<group>"; };
 		88DB865D15CD792B008DF7F9 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		88DB865E15CD792B008DF7F9 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		88DB865F15CD792B008DF7F9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -97,10 +107,21 @@
 		888EF16B15D0440F00470686 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				888B690E15D2D60400610072 /* PlayIcon.png */,
+				888B690B15D2D28900610072 /* CellBkgrnd.png */,
 				888EF16C15D0442A00470686 /* Placeholder.png */,
 				888EF16D15D0442A00470686 /* Placeholder@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		888EF17415D04A9400470686 /* AnimatedGif */ = {
+			isa = PBXGroup;
+			children = (
+				888EF17515D04A9400470686 /* AnimatedGif.h */,
+				888EF17615D04A9400470686 /* AnimatedGif.m */,
+			);
+			path = AnimatedGif;
 			sourceTree = "<group>";
 		};
 		88DB865C15CD792B008DF7F9 /* AFNetworking */ = {
@@ -135,6 +156,7 @@
 		88DC24E415CB004200446F65 = {
 			isa = PBXGroup;
 			children = (
+				888EF17415D04A9400470686 /* AnimatedGif */,
 				888EF16B15D0440F00470686 /* Images */,
 				88DB865C15CD792B008DF7F9 /* AFNetworking */,
 				88DC24F915CB004200446F65 /* thebookoflulz */,
@@ -172,6 +194,8 @@
 				88DB868215CDA6C4008DF7F9 /* SearchResult.m */,
 				888EF16615D039D100470686 /* SearchResultCell.h */,
 				888EF16715D039D100470686 /* SearchResultCell.m */,
+				888B691015D2E78000610072 /* TBLUtil.h */,
+				888B691115D2E78000610072 /* TBLUtil.m */,
 				88DC250815CB004200446F65 /* FeedViewController.xib */,
 				888EF16815D039D100470686 /* SearchResultCell.xib */,
 				88DC24FA15CB004200446F65 /* Supporting Files */,
@@ -247,6 +271,8 @@
 				888EF16A15D039D100470686 /* SearchResultCell.xib in Resources */,
 				888EF16E15D0442A00470686 /* Placeholder.png in Resources */,
 				888EF16F15D0442A00470686 /* Placeholder@2x.png in Resources */,
+				888B690C15D2D28900610072 /* CellBkgrnd.png in Resources */,
+				888B690F15D2D60400610072 /* PlayIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +299,8 @@
 				88DB868315CDA6C4008DF7F9 /* SearchResult.m in Sources */,
 				888EF16415D0343700470686 /* dummytable.m in Sources */,
 				888EF16915D039D100470686 /* SearchResultCell.m in Sources */,
+				888EF17715D04A9400470686 /* AnimatedGif.m in Sources */,
+				888B691215D2E78000610072 /* TBLUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

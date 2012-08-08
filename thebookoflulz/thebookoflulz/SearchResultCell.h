@@ -12,8 +12,6 @@
 
 @interface SearchResultCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UIImageView *searchResultImageView;
-
 -(void)configureForSearchResult:(SearchResult *)searchResult;
 
 @end
