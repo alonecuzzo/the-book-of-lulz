@@ -13,6 +13,7 @@
 #import "SearchResult.h"
 #import "SearchResultCell.h"
 #import "TBLUtil.h"
+#import "AppDelegate.h"
 
 static NSString *const kOauthConsumerKey = @"pLM9QUE1O0OYgaO81aGvZEtvnkoTeNwNXzTYoP58WHUELwJaXN";
 static NSString *const kBaseTumblrApiUrl = @"http://api.tumblr.com/v2/blog/thebookoflulz.org/posts/";
@@ -29,6 +30,7 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
 @implementation FeedViewController {
     NSOperationQueue *queue;
     NSMutableArray *searchResults;
+    UISwipeGestureRecognizer *swipeGesture;
 }
 
 @synthesize feedView = _feedView;
@@ -214,6 +216,11 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
     
     self.tableView.rowHeight = 240;
     
+    swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipedScreen:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+    UIWindow *window = [(AppDelegate *)[[UIApplication sharedApplication] delegate] window];
+    [window addGestureRecognizer:swipeGesture];
+    
     [self loadData];
 }
 
@@ -229,9 +236,9 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    UIWindow *window = [(AppDelegate *)[[UIApplication sharedApplication] delegate] window];
+    [window removeGestureRecognizer:swipeGesture];
 }
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -276,6 +283,9 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
     return cell;
 }
 
+-(void) swipedScreen:(UISwipeGestureRecognizer*)swipeGesture {
+    [self performSearch];
+}
 
 
 @end
