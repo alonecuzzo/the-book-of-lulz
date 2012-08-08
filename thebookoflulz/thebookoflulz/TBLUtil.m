@@ -16,7 +16,7 @@
     //have to parse the photos object
     NSDictionary *photosObject = (NSDictionary *)[searchResult.photos objectAtIndex:0];
     NSArray *altSizesArray = (NSArray *)[photosObject objectForKey:@"alt_sizes"];
-    NSDictionary *altSizesDict = (NSDictionary *)[altSizesArray objectAtIndex:2];
+    NSDictionary *altSizesDict = (NSDictionary *)[altSizesArray objectAtIndex:1];
     NSString *imageUrl = (NSString *)[altSizesDict objectForKey:@"url"];
     return imageUrl;
 }

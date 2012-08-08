@@ -172,6 +172,20 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
     [queue addOperation:operation];
 }
 
+-(void)addSwipeGestureRecognizer
+{
+    swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipedScreen:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+    UIWindow *window = [(AppDelegate *)[[UIApplication sharedApplication] delegate] window];
+    [window addGestureRecognizer:swipeGesture];
+}
+
+-(void)removeSwipeGestureRecognizer
+{
+    UIWindow *window = [(AppDelegate *)[[UIApplication sharedApplication] delegate] window];
+    [window removeGestureRecognizer:swipeGesture];
+}
+
 -(IBAction)performSearch
 {
     [self.searchBar resignFirstResponder];
@@ -185,11 +199,13 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
     if(menuOpen) {
         frame.origin.x = 0;
         menuOpen = NO;
+        [self removeSwipeGestureRecognizer];
     } else {
         frame.origin.x = 270;
         menuOpen = YES;
         [self.searchBar becomeFirstResponder];
         self.searchBar.text = @"";
+        [self addSwipeGestureRecognizer];
     }
     
     self.feedView.frame = frame;
@@ -216,11 +232,6 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
     
     self.tableView.rowHeight = 240;
     
-    swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipedScreen:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-    UIWindow *window = [(AppDelegate *)[[UIApplication sharedApplication] delegate] window];
-    [window addGestureRecognizer:swipeGesture];
-    
     [self loadData];
 }
 
@@ -235,10 +246,9 @@ static NSString *const kSearchResultCellIdentifier = @"SearchResultCell";
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    UIWindow *window = [(AppDelegate *)[[UIApplication sharedApplication] delegate] window];
-    [window removeGestureRecognizer:swipeGesture];
+    [self removeSwipeGestureRecognizer];
 }
+    
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
